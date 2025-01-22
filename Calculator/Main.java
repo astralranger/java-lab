@@ -1,5 +1,10 @@
-// Main.java
 
+// Name : Piyush Gawade
+// PRN: 23070126090
+// Batch : B1
+
+
+// Main.java
 import java.util.Scanner;
 import java.util.*;
 
