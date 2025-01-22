@@ -1,39 +1,66 @@
 // Main.java
+import java.util.Scanner;
 import java.util.*;
-class Main{
-  public static void main(String[] args){
-    UserInput in = new UserInput();
-    Calculator cal = new Calculator();
-    Scanner scan = new Scanner(System.in);
-    System.out.println("Choose operation:");
-    System.out.println("1. Addition");
-    System.out.println("2. Subtraction");
-    System.out.println("3. Multiplication");
-    System.out.println("4. Division");
-    System.out.print("Enter choice(1/2/3/4): ");
-    int choice = scan.nextInt();
-    int[] numbers = in.userInput();
-    int result = 0;
-    switch(choice){
-      case 1:
-        result = cal.addition(numbers);
-        System.out.println("Addition: " + result);
-        break;
-      case 2:
-        result = cal.subtraction(numbers);
-        System.out.println("Subtraction: " + result);
-        break;
-      case 3:
-        result = cal.multiplication(numbers);
-        System.out.println("Multiplication: " + result);
-        break;
-      case 4:
-        result = cal.division(numbers);
-        System.out.println("Division: " + result);
-        break;
-      default:
-        System.out.println("Invalid input");
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        UserInput userInput = new UserInput(scanner);
+        Calculator calculator = new Calculator();
+
+        System.out.println("Choose an Operation:");
+        System.out.println("1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Fibonacci Sequence\n6. Mean of Array\n7. Variance of Array");
+
+        int choice = userInput.getChoice();
+
+        switch (choice) {
+            case 1:
+                System.out.println("Enter two numbers:");
+                double a = userInput.getNumber();
+                double b = userInput.getNumber();
+                System.out.println("Result: " + calculator.add(a, b));
+                break;
+            case 2:
+                System.out.println("Enter two numbers:");
+                a = userInput.getNumber();
+                b = userInput.getNumber();
+                System.out.println("Result: " + calculator.subtract(a, b));
+                break;
+            case 3:
+                System.out.println("Enter two numbers:");
+                a = userInput.getNumber();
+                b = userInput.getNumber();
+                System.out.println("Result: " + calculator.multiply(a, b));
+                break;
+            case 4:
+                System.out.println("Enter two numbers:");
+                a = userInput.getNumber();
+                b = userInput.getNumber();
+                System.out.println("Result: " + calculator.divide(a, b));
+                break;
+            case 5:
+                System.out.println("Enter the number of terms for the Fibonacci sequence:");
+                int terms = userInput.getInt();
+                System.out.println("Fibonacci Sequence: " + calculator.fibonacci(terms));
+                break;
+            case 6:
+                System.out.println("Enter the size of the array:");
+                int size = userInput.getInt();
+                System.out.println("Enter the array elements:");
+                double[] array = userInput.getArray(size);
+                System.out.println("Mean: " + calculator.mean(array));
+                break;
+            case 7:
+                System.out.println("Enter the size of the array:");
+                size = userInput.getInt();
+                System.out.println("Enter the array elements:");
+                array = userInput.getArray(size);
+                System.out.println("Variance: " + calculator.variance(array));
+                break;
+            default:
+                System.out.println("Invalid choice.");
+        }
+
+        scanner.close();
     }
-    scan.close();
-  }
 }
