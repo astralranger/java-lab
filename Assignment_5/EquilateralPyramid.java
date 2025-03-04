@@ -1,23 +1,36 @@
+
+import java.util.Scanner;
+
 class EquilateralPyramid extends Shape implements Volume {
-    double baseSide, height;
-    public EquilateralPyramid(double baseSide, double height) {
+    private double base, height;
+
+    public EquilateralPyramid() {
         super("Equilateral Pyramid");
-        this.baseSide = baseSide;
-        this.height = height;
     }
+
+    public void inputValues() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter base length of Pyramid: ");
+        this.base = sc.nextDouble();
+        System.out.print("Enter height of Pyramid: ");
+        this.height = sc.nextDouble();
+    }
+
     @Override
     void calculateArea() {
-        double baseArea = baseSide * baseSide;
-        double slantHeight = Math.sqrt((baseSide / 2) * (baseSide / 2) + height * height);
-        double lateralArea = 2 * baseSide * slantHeight;
-        System.out.println("Surface Area: " + (baseArea + lateralArea));
+        double baseArea = base * base;
+        double lateralArea = 2 * base * Math.sqrt((base / 2) * (base / 2) + height * height);
+        System.out.println("Surface Area of Pyramid: " + (baseArea + lateralArea));
     }
+
     @Override
     public void calculateVolume() {
-        System.out.println("Volume: " + ((1.0 / 3.0) * (baseSide * baseSide) * height));
+        System.out.println("Volume of Pyramid: " + ((1.0 / 3) * base * base * height));
     }
+
     @Override
     void calculatePerimeter() {
-        System.out.println("Perimeter: " + (4 * baseSide));
+        System.out.println("Perimeter of Pyramid Base: " + (4 * base));
     }
 }
+

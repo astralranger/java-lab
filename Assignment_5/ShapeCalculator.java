@@ -1,39 +1,64 @@
+
 import java.util.Scanner;
+
 public class ShapeCalculator {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int choice;
+        Scanner sc = new Scanner(System.in);
 
-        do {
-            // display menu options
-            System.out.println("\nSelect Shape:");
+        while (true) {
+            System.out.println("\nSelect a shape to calculate:");
             System.out.println("1. Circle");
             System.out.println("2. Rectangle");
-            System.out.println("3. Exit");
-            System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
+            System.out.println("3. Square");
+            System.out.println("4. Sphere");
+            System.out.println("5. Cylinder");
+            System.out.println("6. Equilateral Pyramid");
+            System.out.println("7. Exit");
+            System.out.print("Enter choice: ");
+            int choice = sc.nextInt();
+
+            Shape shape = null;
+            Volume volumeShape = null;
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter radius: ");
-                    Circle circle = new Circle(scanner.nextDouble());
-                    circle.calculateArea();
-                    circle.calculatePerimeter();
+                    shape = new Circle();
                     break;
                 case 2:
-                    System.out.print("Enter length and width: ");
-                    Rectangle rectangle = new Rectangle(scanner.nextDouble(), scanner.nextDouble());
-                    rectangle.calculateArea();
-                    rectangle.calculatePerimeter();
+                    shape = new Rectangle();
                     break;
                 case 3:
-                    System.out.println("Exiting program...");
+                    shape = new Square();
                     break;
+                case 4:
+                    shape = new Sphere();
+                    volumeShape = (Volume) shape;
+                    break;
+                case 5:
+                    shape = new Cylinder();
+                    volumeShape = (Volume) shape;
+                    break;
+                case 6:
+                    shape = new EquilateralPyramid();
+                    volumeShape = (Volume) shape;
+                    break;
+                case 7:
+                    System.out.println("Exiting program.");
+                    return;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Invalid choice. Try again.");
+                    continue;
             }
-        } while (choice != 3);
 
-        scanner.close();
+            if (shape != null) {
+                shape.inputValues();
+                shape.calculateArea();
+                shape.calculatePerimeter();
+            }
+            if (volumeShape != null) {
+                volumeShape.calculateVolume();
+            }
+        }
     }
 }
+

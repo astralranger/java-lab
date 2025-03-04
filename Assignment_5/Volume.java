@@ -1,3 +1,6 @@
+
 interface Volume {
-    void calculateVolume(); // abstract method to calculate volume
+    // this method must be implemented by 3D shapes
+    void calculateVolume();
 }
+

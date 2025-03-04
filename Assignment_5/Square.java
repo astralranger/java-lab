@@ -1,15 +1,27 @@
+
+import java.util.Scanner;
+
 class Square extends Shape {
-    double side;
-    public Square(double side) {
+    private double side;
+
+    public Square() {
         super("Square");
-        this.side = side;
     }
+
+    public void inputValues() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter side length of Square: ");
+        this.side = sc.nextDouble();
+    }
+
     @Override
     void calculateArea() {
-        System.out.println("Area: " + (side * side));
+        System.out.println("Area of Square: " + (side * side));
     }
+
     @Override
     void calculatePerimeter() {
-        System.out.println("Perimeter: " + (4 * side));
+        System.out.println("Perimeter of Square: " + (4 * side));
     }
 }
+
