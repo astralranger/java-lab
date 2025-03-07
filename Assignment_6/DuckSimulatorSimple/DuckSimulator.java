@@ -1,3 +1,8 @@
+// Piyush Gawade
+// 23070126090
+// B1
+
+
 public class DuckSimulator {
     public static void main(String[] args) {
         System.out.println("Duck Simulator - March 5, 2025\n");
