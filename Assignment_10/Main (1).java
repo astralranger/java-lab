@@ -1,6 +1,8 @@
-// Name: Parth Ubhe
-// PRN: 23070126086
-// Batch: B1
+/*
+ * Name  : Piyush Gawade
+ * PRN   : 23070126090
+ * Batch : B1
+*/
 
 public class Main {
     public static void main(String[] args) {
